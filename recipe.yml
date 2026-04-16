@@ -114,11 +114,6 @@ stages:
       - swtpm
       - gir1.2-spiceclientgtk-3.0
       - spice-vdagent
-
-  - name: enable-virt-services
-    type: shell
-    commands:
-      - systemctl enable libvirtd
   # --- FIM DA INTEGRAcaO CUSTOMIZADA ---
 
   - name: cleanup-and-sysconf-setup
