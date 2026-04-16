@@ -90,6 +90,37 @@ stages:
       - modules/997-misc-setup.yml
       - modules/999-cleanup.yml
 
+  # --- INiCIO DA INTEGRAcaO CUSTOMIZADA ---
+  - name: custom-tools-and-virt
+    type: apt
+    packages:
+      # Ferramentas Basicas
+      - git
+      # Nucleo da Virtualizacao
+      - virt-manager
+      - libvirt-daemon-system
+      - libvirt-clients
+      - qemu-kvm
+      - qemu-system
+      - qemu-utils
+      # Suporte de Rede para as VMs
+      - bridge-utils
+      - dnsmasq-base
+      - ebtables
+      - iptables
+      - vde2
+      # Firmware e Integracao
+      - ovmf
+      - swtpm
+      - gir1.2-spiceclientgtk-3.0
+      - spice-vdagent
+
+  - name: enable-virt-services
+    type: shell
+    commands:
+      - systemctl enable libvirtd
+  # --- FIM DA INTEGRAcaO CUSTOMIZADA ---
+
   - name: cleanup-and-sysconf-setup
     type: shell
     commands:
